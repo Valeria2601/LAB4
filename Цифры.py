@@ -9,8 +9,8 @@ def num_to_words(num):
                       "девяносто"]
         hundreds_words = ["сто", "двести", "триста", "четыреста", "пятьсот", "шестьсот", "семьсот", "восемьсот",
                           "девятьсот"]
-        thousands_words = ["тысяча", "тысячи", "тысяч"]
-        rubles_words = ["рубль", "рубля", "рублей"]
+        thousands_words = ["тысяч"]
+        rubles_words = ["рубл"]
 
         # определяем разряды числа
         units = num % 10  # единицы
@@ -23,9 +23,9 @@ def num_to_words(num):
         if thousands > 0:
             order = "тысяч"
             if thousands == 1:
-                order = "тысяча"
+                order = "тысяч"
             elif thousands >= 2 and thousands <= 4:
-                order = "тысячи"
+                order = "тысяч"
         elif num == 0:
             order = "рублей"
 
@@ -48,9 +48,11 @@ def num_to_words(num):
         # формируем словесное представление числа
         num_in_words = ""
         if num == 0:
-            num_in_words = "ноль рублей"
+            num_in_words = "Ошибка! Число должно быть от 1 до 100000."
         else:
-            if thousands > 0 :
+            if thousands == 1 :
+                num_in_words += "одна тысяч" + thousands_end + " "  
+            if thousands > 1 :
                 if thousands < 20 :
                     num_in_words += num_words[thousands] + " " + order + thousands_end + " "
                 else:
